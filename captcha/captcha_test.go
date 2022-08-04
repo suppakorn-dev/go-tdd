@@ -18,10 +18,10 @@ func Test_leftOperand_whenPatternIs1_andLeftOperandIs1_shouldReturn1(t *testing.
 }
 func Test_leftOperand_whenPatternIs1_andLeftOperandIs2_ShouldReturn2(t *testing.T) {
 	c := Captcha{
-		1,
-		2,
-		0,
-		0,
+		pattern:      1,
+		leftOperand:  2,
+		operator:     0,
+		rightOperand: 0,
 	}
 
 	l := c.LeftOperand()
