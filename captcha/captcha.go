@@ -8,5 +8,5 @@ type Captcha struct {
 }
 
 func (c Captcha) LeftOperand() int {
-	return 1
+	return c.leftOperand
 }
