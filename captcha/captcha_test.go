@@ -26,6 +26,7 @@ func Test_leftOperand_whenPatternIs1_andLeftOperandIs2_ShouldReturn2(t *testing.
 	}
 
 	l := c.LeftOperand()
+
 	if l != "2" {
 		t.Error("Should be 2 but got", l)
 	}
