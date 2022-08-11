@@ -12,10 +12,11 @@ func Test_leftOperand_whenPatternIs1_andLeftOperandIs1_shouldReturn1(t *testing.
 
 	l := c.LeftOperand()
 
-	if l != 1 {
+	if l != "1" {
 		t.Error("Should be 1 but got", l)
 	}
 }
+
 func Test_leftOperand_whenPatternIs1_andLeftOperandIs2_ShouldReturn2(t *testing.T) {
 	c := Captcha{
 		pattern:      1,
@@ -25,7 +26,7 @@ func Test_leftOperand_whenPatternIs1_andLeftOperandIs2_ShouldReturn2(t *testing.
 	}
 
 	l := c.LeftOperand()
-	if l != 2 {
+	if l != "2" {
 		t.Error("Should be 2 but got", l)
 	}
 }

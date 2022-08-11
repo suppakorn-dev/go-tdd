@@ -1,5 +1,7 @@
 package captcha
 
+import "strconv"
+
 type Captcha struct {
 	pattern      int
 	leftOperand  int
@@ -7,6 +9,6 @@ type Captcha struct {
 	rightOperand int
 }
 
-func (c Captcha) LeftOperand() int {
-	return c.leftOperand
+func (c Captcha) LeftOperand() string {
+	return strconv.Itoa(c.leftOperand)
 }
