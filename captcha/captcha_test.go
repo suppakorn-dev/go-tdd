@@ -2,7 +2,7 @@ package captcha
 
 import "testing"
 
-func Test_leftOperand_whenPatternIs1_andLeftOperandIs1_shouldReturn1(t *testing.T) {
+func Test_leftOperand_whenPatternIs1_andLeftOperandIs1_leftOperandShouldReturn1(t *testing.T) {
 	c := Captcha{
 		pattern:      1,
 		leftOperand:  1,
@@ -17,7 +17,7 @@ func Test_leftOperand_whenPatternIs1_andLeftOperandIs1_shouldReturn1(t *testing.
 	}
 }
 
-func Test_leftOperand_whenPatternIs1_andLeftOperandIs2_ShouldReturn2(t *testing.T) {
+func Test_leftOperand_whenPatternIs1_andLeftOperandIs2_leftOperandShouldReturn2(t *testing.T) {
 	c := Captcha{
 		pattern:      1,
 		leftOperand:  2,
@@ -32,7 +32,7 @@ func Test_leftOperand_whenPatternIs1_andLeftOperandIs2_ShouldReturn2(t *testing.
 	}
 }
 
-func Test_leftOperand_whenPatternIs2_andLeftOerandIs1_leftOperandShouldReturnOne(t *testing.T) {
+func Test_leftOperand_whenPatternIs2_andLeftOperandIs1_leftOperandShouldReturnOne(t *testing.T) {
 	c := Captcha{
 		pattern:      2,
 		leftOperand:  1,
