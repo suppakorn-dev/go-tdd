@@ -61,3 +61,13 @@ func Test_leftOperand_whenPatternIs2_andLeftOperandIs2_leftOperandShouldReturnTw
 		t.Errorf("Should be %s but got %s", "Two", l)
 	}
 }
+
+func Test_leftOperand_whenPatternIs2_andLeftOpeandIs3_ledtOperandShouldReturnThree(t *testing.T) {
+	c := Captcha{pattern: 2, leftOperand: 3, operator: 0, rightOperand: 0}
+
+	l := c.LeftOperand()
+
+	if l != "Three" {
+		t.Errorf("Should be %s but got %s", "Three", l)
+	}
+}

@@ -14,6 +14,9 @@ func (c Captcha) LeftOperand() string {
 		if c.leftOperand == 2 {
 			return "Two"
 		}
+		if c.leftOperand == 3 {
+			return "Three"
+		}
 		return "One"
 	}
 	return strconv.Itoa(c.leftOperand)
