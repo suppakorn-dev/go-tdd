@@ -11,6 +11,9 @@ type Captcha struct {
 
 func (c Captcha) LeftOperand() string {
 	if c.pattern == 2 {
+		if c.leftOperand == 2 {
+			return "Two"
+		}
 		return "One"
 	}
 	return strconv.Itoa(c.leftOperand)
