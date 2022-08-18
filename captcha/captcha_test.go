@@ -68,7 +68,12 @@ func Test_leftOperand_whenPatternIs2_andLeftOperandIs2_leftOperandShouldReturnTw
 
 func Test_leftOperand_whenPatternIs2_andLeftOpeandIs3_ledtOperandShouldReturnThree(t *testing.T) {
 	placeholder := 0
-	c := Captcha{pattern: 2, leftOperand: 3, operator: placeholder, rightOperand: placeholder}
+	c := Captcha{
+		pattern:      2,
+		leftOperand:  3,
+		operator:     placeholder,
+		rightOperand: placeholder,
+	}
 
 	l := c.LeftOperand()
 
