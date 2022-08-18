@@ -2,8 +2,9 @@ package captcha
 
 import "testing"
 
+const placeholder = 0
+
 func Test_leftOperand_whenPatternIs1_andLeftOperandIs1_leftOperandShouldReturn1(t *testing.T) {
-	placeholder := 0
 	c := Captcha{
 		pattern:      1,
 		leftOperand:  1,
@@ -19,7 +20,6 @@ func Test_leftOperand_whenPatternIs1_andLeftOperandIs1_leftOperandShouldReturn1(
 }
 
 func Test_leftOperand_whenPatternIs1_andLeftOperandIs2_leftOperandShouldReturn2(t *testing.T) {
-	placeholder := 0
 	c := Captcha{
 		pattern:      1,
 		leftOperand:  2,
@@ -35,7 +35,6 @@ func Test_leftOperand_whenPatternIs1_andLeftOperandIs2_leftOperandShouldReturn2(
 }
 
 func Test_leftOperand_whenPatternIs2_andLeftOperandIs1_leftOperandShouldReturnOne(t *testing.T) {
-	placeholder := 0
 	c := Captcha{
 		pattern:      2,
 		leftOperand:  1,
@@ -51,7 +50,6 @@ func Test_leftOperand_whenPatternIs2_andLeftOperandIs1_leftOperandShouldReturnOn
 }
 
 func Test_leftOperand_whenPatternIs2_andLeftOperandIs2_leftOperandShouldReturnTwo(t *testing.T) {
-	placeholder := 0
 	c := Captcha{
 		pattern:      2,
 		leftOperand:  2,
@@ -67,7 +65,6 @@ func Test_leftOperand_whenPatternIs2_andLeftOperandIs2_leftOperandShouldReturnTw
 }
 
 func Test_leftOperand_whenPatternIs2_andLeftOpeandIs3_ledtOperandShouldReturnThree(t *testing.T) {
-	placeholder := 0
 	c := Captcha{
 		pattern:      2,
 		leftOperand:  3,
