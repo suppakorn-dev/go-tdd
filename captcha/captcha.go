@@ -19,5 +19,8 @@ func (c Captcha) LeftOperand() string {
 }
 
 func (c Captcha) RightOperand() string {
+	if c.rightOperand == 2 {
+		return "Two"
+	}
 	return "One"
 }
