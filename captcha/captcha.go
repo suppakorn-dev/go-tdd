@@ -19,6 +19,10 @@ func (c Captcha) LeftOperand() string {
 }
 
 func (c Captcha) RightOperand() string {
+	if c.pattern == 2 {
+		return strconv.Itoa(c.rightOperand)
+	}
+
 	if c.rightOperand == 3 {
 		return "Three"
 	}
