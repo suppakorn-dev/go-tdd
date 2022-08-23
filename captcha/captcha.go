@@ -9,25 +9,11 @@ type Captcha struct {
 	rightOperand int
 }
 
-var numberToString = map[int]string{
-	1: "One",
-	2: "Two",
-	3: "Three",
-	4: "Four",
-	5: "Five",
-	6: "Six",
-	7: "Seven",
-	8: "Eight",
-	9: "Nine",
-}
-
 func (c Captcha) LeftOperand() string {
 	if c.pattern == 2 {
-		if val, ok := numberToString[c.leftOperand]; ok {
-			return val
-		}
-		return ""
-
+		numberToString := []string{"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"}
+		return numberToString[c.leftOperand-1]
 	}
+
 	return strconv.Itoa(c.leftOperand)
 }
