@@ -29,7 +29,8 @@ func (c Captcha) RightOperand() string {
 	}
 
 	if c.rightOperand == 2 {
-		return "Two"
+		numberToString := []string{"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"}
+		return numberToString[c.rightOperand-1]
 	}
 	return "One"
 }
