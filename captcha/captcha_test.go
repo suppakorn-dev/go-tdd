@@ -64,7 +64,7 @@ func Test_leftOperand_whenPatternIs2_andLeftOperandIs2_leftOperandShouldReturnTw
 	}
 }
 
-func Test_leftOperand_whenPatternIs2_andLeftOpeandIs3_ledtOperandShouldReturnThree(t *testing.T) {
+func Test_leftOperand_whenPatternIs2_andLeftOperandIs3_leftOperandShouldReturnThree(t *testing.T) {
 	c := Captcha{
 		pattern:      2,
 		leftOperand:  3,
