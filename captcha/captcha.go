@@ -23,6 +23,8 @@ func (c Captcha) RightOperand() string {
 		return strconv.Itoa(c.rightOperand)
 	}
 
+	numberToString := []string{"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"}
+
 	if c.rightOperand == 3 {
 		numberToString := []string{"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"}
 		return numberToString[c.rightOperand-1]
@@ -33,6 +35,5 @@ func (c Captcha) RightOperand() string {
 		return numberToString[c.rightOperand-1]
 	}
 
-	numberToString := []string{"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"}
 	return numberToString[c.rightOperand-1]
 }
