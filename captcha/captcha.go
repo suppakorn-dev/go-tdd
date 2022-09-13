@@ -34,8 +34,8 @@ func (c Captcha) Operator() string {
 	}
 
 	if c.operator == 2 {
-		return "-"
+		return Operator(2).String()
 	}
 
-	return "+"
+	return Operator(1).String()
 }
