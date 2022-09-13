@@ -168,3 +168,18 @@ func Test_operator_whenInputIs2_operatorShouldReturnMinusSymbol(t *testing.T) {
 		t.Errorf("Should be %s but got %s", "-", o)
 	}
 }
+
+func Test_operator_whenInputIs3_operatorShouldReturnDivideSymbol(t *testing.T) {
+	c := Captcha{
+		pattern:      placeholder,
+		leftOperand:  placeholder,
+		operator:     3,
+		rightOperand: placeholder,
+	}
+
+	o := c.Operator()
+
+	if o != "/" {
+		t.Errorf("Should be %s but got %s", "/", o)
+	}
+}
