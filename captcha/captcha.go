@@ -27,3 +27,7 @@ func (c Captcha) RightOperand() string {
 
 	return numberToString[c.rightOperand-1]
 }
+
+func (c Captcha) Operator() string {
+	return "+"
+}
