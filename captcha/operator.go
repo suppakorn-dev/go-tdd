@@ -1,8 +1,6 @@
 package captcha
 
-type Operator struct {
-	rawValue int
-}
+type Operator int
 
 func (o Operator) String() string {
 	return "+"
