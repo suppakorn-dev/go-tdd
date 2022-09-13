@@ -30,7 +30,7 @@ func (c Captcha) RightOperand() string {
 
 func (c Captcha) Operator() string {
 	if c.operator == 3 {
-		return "/"
+		return Operator(3).String()
 	}
 
 	if c.operator == 2 {
