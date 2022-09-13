@@ -29,5 +29,9 @@ func (c Captcha) RightOperand() string {
 }
 
 func (c Captcha) Operator() string {
+	if c.operator == 2 {
+		return "-"
+	}
+
 	return "+"
 }

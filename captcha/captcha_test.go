@@ -153,3 +153,18 @@ func Test_operator_whenInputIs1_operatorShouldReturnAdditionalSymbol(t *testing.
 		t.Errorf("Should be %s but got %s", "+", r)
 	}
 }
+
+func Test_operator_whenInputIs2_operatorShouldReturnMinusSymbol(t *testing.T) {
+	c := Captcha{
+		pattern:      placeholder,
+		leftOperand:  placeholder,
+		operator:     2,
+		rightOperand: placeholder,
+	}
+
+	o := c.Operator()
+
+	if o != "-" {
+		t.Errorf("Should be %s but got %s", "-", o)
+	}
+}
