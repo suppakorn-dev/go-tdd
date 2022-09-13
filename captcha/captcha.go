@@ -29,13 +29,5 @@ func (c Captcha) RightOperand() string {
 }
 
 func (c Captcha) Operator() string {
-	if c.operator == 3 {
-		return Operator(c.operator).String()
-	}
-
-	if c.operator == 2 {
-		return Operator(c.operator).String()
-	}
-
 	return Operator(c.operator).String()
 }
