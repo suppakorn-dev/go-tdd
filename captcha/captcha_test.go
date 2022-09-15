@@ -125,3 +125,29 @@ func Test_operator_whenInputIs3_operatorShouldReturnDivideSymbol(t *testing.T) {
 		t.Errorf("Should be %s but got %s", "/", o)
 	}
 }
+
+type StringSpy struct {
+	mockString        string
+	stringCalledCount uint
+}
+
+func (s *StringSpy) String() string {
+	s.stringCalledCount++
+	return s.mockString
+}
+
+func Test_operatorShouldCallStringOnce(t *testing.T) {
+	c := New(placeholder, placeholder, placeholder, placeholder)
+	s := StringSpy{mockString: "placeholder"}
+	c.operator = &s
+
+	actual := c.Operator()
+
+	if s.stringCalledCount != 1 {
+		t.Errorf("Should call String only once but called %d", s.stringCalledCount)
+	}
+
+	if actual != s.mockString {
+		t.Errorf("It should return %s but got %s", s.mockString, actual)
+	}
+}
