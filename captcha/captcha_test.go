@@ -151,3 +151,13 @@ func Test_operatorShouldCallStringOnce(t *testing.T) {
 		t.Errorf("It should return %s but got %s", s.mockString, actual)
 	}
 }
+
+func Test_operatorShouldBeOperator(t *testing.T) {
+	c := New(placeholder, placeholder, placeholder, placeholder)
+
+	_, ok := c.operator.(Operator)
+
+	if !ok {
+		t.Errorf("c.operator should be Operator")
+	}
+}
