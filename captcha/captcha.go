@@ -5,7 +5,7 @@ import "strconv"
 type Captcha struct {
 	pattern      int
 	leftOperand  int
-	operator     int
+	operator     Stringable
 	rightOperand int
 }
 
@@ -13,7 +13,7 @@ func New(pattern, leftOperand, operator, rightOperand int) Captcha {
 	return Captcha{
 		pattern:      pattern,
 		leftOperand:  leftOperand,
-		operator:     operator,
+		operator:     Operator(operator),
 		rightOperand: rightOperand,
 	}
 }
@@ -38,5 +38,5 @@ func (c Captcha) RightOperand() string {
 }
 
 func (c Captcha) Operator() string {
-	return Operator(c.operator).String()
+	return c.operator.String()
 }
