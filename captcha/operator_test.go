@@ -1,6 +1,8 @@
 package captcha
 
-import "testing"
+import (
+	"testing"
+)
 
 func Test_whenOperatorIs1_stringShouldReturnPlus(t *testing.T) {
 	var o Operator = 1

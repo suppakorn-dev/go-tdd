@@ -9,6 +9,15 @@ type Captcha struct {
 	rightOperand int
 }
 
+func New(pattern, leftOperand, operator, rightOperand int) Captcha {
+	return Captcha{
+		pattern:      pattern,
+		leftOperand:  leftOperand,
+		operator:     operator,
+		rightOperand: rightOperand,
+	}
+}
+
 func (c Captcha) LeftOperand() string {
 	if c.pattern == 2 {
 		numberToString := []string{"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"}

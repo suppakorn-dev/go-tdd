@@ -1,16 +1,14 @@
-package captcha
+package captcha_test
 
-import "testing"
+import (
+	"go-tdd/captcha"
+	"testing"
+)
 
 const placeholder = 0
 
 func Test_leftOperand_whenPatternIs1_andLeftOperandIs1_leftOperandShouldReturn1(t *testing.T) {
-	c := Captcha{
-		pattern:      1,
-		leftOperand:  1,
-		operator:     placeholder,
-		rightOperand: placeholder,
-	}
+	c := captcha.New(1, 1, placeholder, placeholder)
 
 	l := c.LeftOperand()
 
@@ -20,12 +18,7 @@ func Test_leftOperand_whenPatternIs1_andLeftOperandIs1_leftOperandShouldReturn1(
 }
 
 func Test_leftOperand_whenPatternIs1_andLeftOperandIs2_leftOperandShouldReturn2(t *testing.T) {
-	c := Captcha{
-		pattern:      1,
-		leftOperand:  2,
-		operator:     placeholder,
-		rightOperand: placeholder,
-	}
+	c := captcha.New(1, 2, placeholder, placeholder)
 
 	l := c.LeftOperand()
 
@@ -35,12 +28,7 @@ func Test_leftOperand_whenPatternIs1_andLeftOperandIs2_leftOperandShouldReturn2(
 }
 
 func Test_leftOperand_whenPatternIs2_andLeftOperandIs1_leftOperandShouldReturnOne(t *testing.T) {
-	c := Captcha{
-		pattern:      2,
-		leftOperand:  1,
-		operator:     placeholder,
-		rightOperand: placeholder,
-	}
+	c := captcha.New(2, 1, placeholder, placeholder)
 
 	l := c.LeftOperand()
 
@@ -50,12 +38,7 @@ func Test_leftOperand_whenPatternIs2_andLeftOperandIs1_leftOperandShouldReturnOn
 }
 
 func Test_leftOperand_whenPatternIs2_andLeftOperandIs2_leftOperandShouldReturnTwo(t *testing.T) {
-	c := Captcha{
-		pattern:      2,
-		leftOperand:  2,
-		operator:     placeholder,
-		rightOperand: placeholder,
-	}
+	c := captcha.New(2, 2, placeholder, placeholder)
 
 	l := c.LeftOperand()
 
@@ -65,12 +48,7 @@ func Test_leftOperand_whenPatternIs2_andLeftOperandIs2_leftOperandShouldReturnTw
 }
 
 func Test_leftOperand_whenPatternIs2_andLeftOperandIs3_leftOperandShouldReturnThree(t *testing.T) {
-	c := Captcha{
-		pattern:      2,
-		leftOperand:  3,
-		operator:     placeholder,
-		rightOperand: placeholder,
-	}
+	c := captcha.New(2, 3, placeholder, placeholder)
 
 	l := c.LeftOperand()
 
@@ -80,12 +58,7 @@ func Test_leftOperand_whenPatternIs2_andLeftOperandIs3_leftOperandShouldReturnTh
 }
 
 func Test_rightOperand_whenPatternIs1_andRightOperandIs1_rightOperandShouldReturnOne(t *testing.T) {
-	c := Captcha{
-		pattern:      1,
-		leftOperand:  placeholder,
-		operator:     placeholder,
-		rightOperand: 1,
-	}
+	c := captcha.New(1, placeholder, placeholder, 1)
 
 	l := c.RightOperand()
 
@@ -95,12 +68,7 @@ func Test_rightOperand_whenPatternIs1_andRightOperandIs1_rightOperandShouldRetur
 }
 
 func Test_rightOperand_whenPatternIs1_andRightOperandIs2_rightOperandShouldReturnTwo(t *testing.T) {
-	c := Captcha{
-		pattern:      1,
-		leftOperand:  placeholder,
-		operator:     placeholder,
-		rightOperand: 2,
-	}
+	c := captcha.New(1, placeholder, placeholder, 2)
 
 	l := c.RightOperand()
 
@@ -110,12 +78,7 @@ func Test_rightOperand_whenPatternIs1_andRightOperandIs2_rightOperandShouldRetur
 }
 
 func Test_rightOperand_whenPatternIs1_andRightOperandIs3_rightOperandShouldReturnThree(t *testing.T) {
-	c := Captcha{
-		pattern:      1,
-		leftOperand:  placeholder,
-		operator:     placeholder,
-		rightOperand: 3,
-	}
+	c := captcha.New(1, placeholder, placeholder, 3)
 
 	r := c.RightOperand()
 
@@ -125,12 +88,7 @@ func Test_rightOperand_whenPatternIs1_andRightOperandIs3_rightOperandShouldRetur
 }
 
 func Test_rightOperand_whenPatternIs2_andRightOperandIs1_rightOperandShouldReturn1(t *testing.T) {
-	c := Captcha{
-		pattern:      2,
-		leftOperand:  placeholder,
-		operator:     placeholder,
-		rightOperand: 1,
-	}
+	c := captcha.New(2, placeholder, placeholder, 1)
 
 	r := c.RightOperand()
 
@@ -140,12 +98,7 @@ func Test_rightOperand_whenPatternIs2_andRightOperandIs1_rightOperandShouldRetur
 }
 
 func Test_operator_whenInputIs1_operatorShouldReturnAdditionalSymbol(t *testing.T) {
-	c := Captcha{
-		pattern:      placeholder,
-		leftOperand:  placeholder,
-		operator:     1,
-		rightOperand: placeholder,
-	}
+	c := captcha.New(placeholder, placeholder, 1, placeholder)
 
 	r := c.Operator()
 
@@ -155,12 +108,7 @@ func Test_operator_whenInputIs1_operatorShouldReturnAdditionalSymbol(t *testing.
 }
 
 func Test_operator_whenInputIs2_operatorShouldReturnMinusSymbol(t *testing.T) {
-	c := Captcha{
-		pattern:      placeholder,
-		leftOperand:  placeholder,
-		operator:     2,
-		rightOperand: placeholder,
-	}
+	c := captcha.New(placeholder, placeholder, 2, placeholder)
 
 	o := c.Operator()
 
@@ -170,12 +118,7 @@ func Test_operator_whenInputIs2_operatorShouldReturnMinusSymbol(t *testing.T) {
 }
 
 func Test_operator_whenInputIs3_operatorShouldReturnDivideSymbol(t *testing.T) {
-	c := Captcha{
-		pattern:      placeholder,
-		leftOperand:  placeholder,
-		operator:     3,
-		rightOperand: placeholder,
-	}
+	c := captcha.New(placeholder, placeholder, 3, placeholder)
 
 	o := c.Operator()
 
