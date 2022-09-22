@@ -20,8 +20,7 @@ func New(pattern, leftOperand, operator, rightOperand int) Captcha {
 
 func (c Captcha) LeftOperand() string {
 	if c.pattern == 2 {
-		numberToString := []string{"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"}
-		return numberToString[c.leftOperand-1]
+		return WordOperand(c.leftOperand).String()
 	}
 
 	return strconv.Itoa(c.leftOperand)
