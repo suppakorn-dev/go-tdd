@@ -31,9 +31,7 @@ func (c Captcha) RightOperand() string {
 		return strconv.Itoa(c.rightOperand)
 	}
 
-	numberToString := []string{"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"}
-
-	return numberToString[c.rightOperand-1]
+	return WordOperand(c.rightOperand).String()
 }
 
 func (c Captcha) Operator() string {
