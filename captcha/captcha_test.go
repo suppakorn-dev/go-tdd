@@ -96,36 +96,6 @@ func Test_rightOperand_whenPatternIs2_andRightOperandIs1_rightOperandShouldRetur
 	}
 }
 
-func Test_operator_whenInputIs1_operatorShouldReturnAdditionalSymbol(t *testing.T) {
-	c := New(placeholder, placeholder, 1, placeholder)
-
-	r := c.Operator()
-
-	if r != "+" {
-		t.Errorf("Should be %s but got %s", "+", r)
-	}
-}
-
-func Test_operator_whenInputIs2_operatorShouldReturnMinusSymbol(t *testing.T) {
-	c := New(placeholder, placeholder, 2, placeholder)
-
-	o := c.Operator()
-
-	if o != "-" {
-		t.Errorf("Should be %s but got %s", "-", o)
-	}
-}
-
-func Test_operator_whenInputIs3_operatorShouldReturnDivideSymbol(t *testing.T) {
-	c := New(placeholder, placeholder, 3, placeholder)
-
-	o := c.Operator()
-
-	if o != "/" {
-		t.Errorf("Should be %s but got %s", "/", o)
-	}
-}
-
 type StringSpy struct {
 	mockString        string
 	stringCalledCount uint
