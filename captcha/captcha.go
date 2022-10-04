@@ -1,7 +1,5 @@
 package captcha
 
-import "strconv"
-
 type Captcha struct {
 	pattern      int
 	leftOperand  int
@@ -28,7 +26,7 @@ func (c Captcha) LeftOperand() string {
 
 func (c Captcha) RightOperand() string {
 	if c.pattern == 2 {
-		return strconv.Itoa(c.rightOperand)
+		return IntOperand(c.rightOperand).String()
 	}
 
 	return WordOperand(c.rightOperand).String()
