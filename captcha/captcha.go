@@ -8,28 +8,15 @@ type Captcha struct {
 }
 
 func New(pattern, leftOperand, operator, rightOperand int) Captcha {
-	if pattern == 2 {
-		return Captcha{
-			pattern:      pattern,
-			leftOperand:  WordOperand(leftOperand),
-			operator:     Operator(operator),
-			rightOperand: rightOperand,
-		}
-	}
-
 	return Captcha{
 		pattern:      pattern,
-		leftOperand:  IntOperand(leftOperand),
+		leftOperand:  NewLeftOperand(pattern, leftOperand),
 		operator:     Operator(operator),
 		rightOperand: rightOperand,
 	}
 }
 
 func (c Captcha) LeftOperand() string {
-	if c.pattern == 2 {
-		return c.leftOperand.String()
-	}
-
 	return c.leftOperand.String()
 }
 
