@@ -2,7 +2,7 @@ package captcha
 
 import "testing"
 
-func TestNewLeftOperandWhenPatternIs1ShouldReturnIntOperand(t *testing.T) {
+func Test_NewLeftOperand_whenPatternIs1_shouldReturnIntOperand(t *testing.T) {
 	pattern := 1
 	leftOperand := 1
 
