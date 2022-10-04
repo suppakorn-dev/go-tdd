@@ -131,3 +131,14 @@ func Test_operatorShouldBeOperator(t *testing.T) {
 		t.Errorf("c.operator should be Operator")
 	}
 }
+
+func Test_leftOperandShouldBeWordOperandWhenPatterIs2(t *testing.T) {
+	pattern := 2
+	c := New(pattern, placeholder, placeholder, placeholder)
+
+	_, ok := c.leftOperand.(WordOperand)
+
+	if !ok {
+		t.Errorf("c.leftOperand should be WordOperand")
+	}
+}

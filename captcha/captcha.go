@@ -2,15 +2,24 @@ package captcha
 
 type Captcha struct {
 	pattern      int
-	leftOperand  int
+	leftOperand  Stringable
 	operator     Stringable
 	rightOperand int
 }
 
 func New(pattern, leftOperand, operator, rightOperand int) Captcha {
+	if pattern == 2 {
+		return Captcha{
+			pattern:      pattern,
+			leftOperand:  WordOperand(leftOperand),
+			operator:     Operator(operator),
+			rightOperand: rightOperand,
+		}
+	}
+
 	return Captcha{
 		pattern:      pattern,
-		leftOperand:  leftOperand,
+		leftOperand:  IntOperand(leftOperand),
 		operator:     Operator(operator),
 		rightOperand: rightOperand,
 	}
@@ -18,10 +27,10 @@ func New(pattern, leftOperand, operator, rightOperand int) Captcha {
 
 func (c Captcha) LeftOperand() string {
 	if c.pattern == 2 {
-		return WordOperand(c.leftOperand).String()
+		return c.leftOperand.String()
 	}
 
-	return IntOperand(c.leftOperand).String()
+	return c.leftOperand.String()
 }
 
 func (c Captcha) RightOperand() string {
