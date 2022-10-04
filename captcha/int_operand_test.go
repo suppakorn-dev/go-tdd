@@ -2,7 +2,7 @@ package captcha
 
 import "testing"
 
-func Test_IntOperandIs1_String_should1(t *testing.T) {
+func Test_IntOperand_whenRawValueIs1_stringShouldReturn1(t *testing.T) {
 	o := IntOperand(1)
 
 	if o.String() != "1" {
@@ -10,7 +10,7 @@ func Test_IntOperandIs1_String_should1(t *testing.T) {
 	}
 }
 
-func Test_IntOperandIs2_String_should2(t *testing.T) {
+func Test_IntOperand_whenRawValueIs2_stringShouldReturn2(t *testing.T) {
 	o := IntOperand(2)
 
 	if o.String() != "2" {
@@ -18,7 +18,7 @@ func Test_IntOperandIs2_String_should2(t *testing.T) {
 	}
 }
 
-func Test_IntOperandIs3_String_should3(t *testing.T) {
+func Test_IntOperand_whenRawValueIs3_stringShouldReturn3(t *testing.T) {
 	o := IntOperand(3)
 
 	if o.String() != "3" {
