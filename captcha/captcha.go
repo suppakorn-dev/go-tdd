@@ -23,7 +23,7 @@ func (c Captcha) LeftOperand() string {
 		return WordOperand(c.leftOperand).String()
 	}
 
-	return strconv.Itoa(c.leftOperand)
+	return IntOperand(c.leftOperand).String()
 }
 
 func (c Captcha) RightOperand() string {
