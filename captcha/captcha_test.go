@@ -143,3 +143,15 @@ func Test_leftOperandShouldBeWordOperandWhenPatterIs2(t *testing.T) {
 		t.Errorf("c.leftOperand should be WordOperand but got %s", typeName)
 	}
 }
+
+func Test_leftOperandShouldCallStringOnce(t *testing.T) {
+	spy := StringSpy{}
+	c := New(placeholder, placeholder, placeholder, placeholder)
+	c.leftOperand = &spy
+
+	_ = c.LeftOperand()
+
+	if spy.stringCalledCount != 1 {
+		t.Errorf("c.leftOperand should call String() once, but call %d", spy.stringCalledCount)
+	}
+}
