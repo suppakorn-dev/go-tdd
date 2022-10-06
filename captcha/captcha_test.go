@@ -7,56 +7,6 @@ import (
 
 const placeholder = 0
 
-func Test_leftOperand_whenPatternIs1_andLeftOperandIs1_leftOperandShouldReturn1(t *testing.T) {
-	c := New(1, 1, placeholder, placeholder)
-
-	l := c.LeftOperand()
-
-	if l != "1" {
-		t.Error("Should be 1 but got", l)
-	}
-}
-
-func Test_leftOperand_whenPatternIs1_andLeftOperandIs2_leftOperandShouldReturn2(t *testing.T) {
-	c := New(1, 2, placeholder, placeholder)
-
-	l := c.LeftOperand()
-
-	if l != "2" {
-		t.Error("Should be 2 but got", l)
-	}
-}
-
-func Test_leftOperand_whenPatternIs2_andLeftOperandIs1_leftOperandShouldReturnOne(t *testing.T) {
-	c := New(2, 1, placeholder, placeholder)
-
-	l := c.LeftOperand()
-
-	if l != "One" {
-		t.Errorf("Should be %s but got %s", "One", l)
-	}
-}
-
-func Test_leftOperand_whenPatternIs2_andLeftOperandIs2_leftOperandShouldReturnTwo(t *testing.T) {
-	c := New(2, 2, placeholder, placeholder)
-
-	l := c.LeftOperand()
-
-	if l != "Two" {
-		t.Errorf("Should be %s but got %s", "Two", l)
-	}
-}
-
-func Test_leftOperand_whenPatternIs2_andLeftOperandIs3_leftOperandShouldReturnThree(t *testing.T) {
-	c := New(2, 3, placeholder, placeholder)
-
-	l := c.LeftOperand()
-
-	if l != "Three" {
-		t.Errorf("Should be %s but got %s", "Three", l)
-	}
-}
-
 func Test_rightOperand_whenPatternIs1_andRightOperandIs1_rightOperandShouldReturnOne(t *testing.T) {
 	c := New(1, placeholder, placeholder, 1)
 
