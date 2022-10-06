@@ -1,6 +1,7 @@
 package captcha
 
 import (
+	"reflect"
 	"testing"
 )
 
@@ -125,10 +126,10 @@ func Test_operatorShouldCallStringOnce(t *testing.T) {
 func Test_operatorShouldBeOperator(t *testing.T) {
 	c := New(placeholder, placeholder, placeholder, placeholder)
 
-	_, ok := c.operator.(Operator)
-
-	if !ok {
-		t.Errorf("c.operator should be Operator")
+	operatorType := reflect.TypeOf(c.operator)
+	typeName := operatorType.Name()
+	if typeName != "Operator" {
+		t.Errorf("c.operator should be Operator but got %s", typeName)
 	}
 }
 
@@ -136,9 +137,9 @@ func Test_leftOperandShouldBeWordOperandWhenPatterIs2(t *testing.T) {
 	pattern := 2
 	c := New(pattern, placeholder, placeholder, placeholder)
 
-	_, ok := c.leftOperand.(WordOperand)
-
-	if !ok {
-		t.Errorf("c.leftOperand should be WordOperand")
+	wordOperandType := reflect.TypeOf(c.leftOperand)
+	typeName := wordOperandType.Name()
+	if typeName != "WordOperand" {
+		t.Errorf("c.leftOperand should be WordOperand but got %s", typeName)
 	}
 }

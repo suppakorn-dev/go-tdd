@@ -1,6 +1,9 @@
 package captcha
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 func Test_NewLeftOperand_whenPatternIs1_shouldReturnIntOperand(t *testing.T) {
 	pattern := 1
@@ -8,9 +11,10 @@ func Test_NewLeftOperand_whenPatternIs1_shouldReturnIntOperand(t *testing.T) {
 
 	sut := NewLeftOperand(pattern, leftOperand)
 
-	_, ok := sut.(IntOperand)
-	if !ok {
-		t.Errorf("Expect type IntOperand but got %T", sut)
+	leftOperandType := reflect.TypeOf(sut)
+	typeName := leftOperandType.Name()
+	if typeName != "IntOperand" {
+		t.Errorf("Expect type IntOperand but got %s", typeName)
 	}
 }
 
@@ -20,8 +24,9 @@ func Test_NewLeftOperand_whenPatternIs2_shouldReturnWordOperand(t *testing.T) {
 
 	sut := NewLeftOperand(pattern, leftOperand)
 
-	_, ok := sut.(WordOperand)
-	if !ok {
-		t.Errorf("Expect type WordOperand but got %T", sut)
+	leftOperandType := reflect.TypeOf(sut)
+	typeName := leftOperandType.Name()
+	if typeName != "WordOperand" {
+		t.Errorf("Expect type WordOperand but got %s", typeName)
 	}
 }
