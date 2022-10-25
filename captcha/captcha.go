@@ -5,7 +5,7 @@ type Captcha struct {
 	pattern      int
 	leftOperand  Stringable
 	operator     Stringable
-	rightOperand int
+	rightOperand Stringable
 }
 
 // New is create a new captcha object
@@ -14,7 +14,7 @@ func New(pattern, leftOperand, operator, rightOperand int) Captcha {
 		pattern:      pattern,
 		leftOperand:  NewLeftOperand(pattern, leftOperand),
 		operator:     Operator(operator),
-		rightOperand: rightOperand,
+		rightOperand: NewRightOperand(pattern, rightOperand),
 	}
 }
 
@@ -25,11 +25,7 @@ func (c Captcha) LeftOperand() string {
 
 // RightOperand will handle right operand
 func (c Captcha) RightOperand() string {
-	if c.pattern == 2 {
-		return IntOperand(c.rightOperand).String()
-	}
-
-	return WordOperand(c.rightOperand).String()
+	return c.rightOperand.String()
 }
 
 // Operator will handle right operand
