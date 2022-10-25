@@ -117,3 +117,15 @@ func Test_leftOperand_shouldCallStringOnce(t *testing.T) {
 		t.Errorf("c.leftOperand should call String() once, but call %d", spy.stringCalledCount)
 	}
 }
+
+func Test_rightOperand_shouldCallStringOnce(t *testing.T) {
+	spy := StringSpy{}
+	sut := New(placeholder, placeholder, placeholder, placeholder)
+	sut.rightOperand = &spy
+
+	sut.RightOperand()
+
+	if spy.stringCalledCount != 1 {
+		t.Errorf("sut.rightOperand should call String() once, but call %d", spy.stringCalledCount)
+	}
+}
