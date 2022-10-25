@@ -7,7 +7,7 @@ import (
 
 const placeholder = 0
 
-func Test_rightOperand_whenPatternIs1_andRightOperandIs1_rightOperandShouldReturnOne(t *testing.T) {
+func Test_rightOperand_whenPatternIs1AndRightOperandIs1_rightOperandShouldReturnOne(t *testing.T) {
 	c := New(1, placeholder, placeholder, 1)
 
 	l := c.RightOperand()
@@ -17,7 +17,7 @@ func Test_rightOperand_whenPatternIs1_andRightOperandIs1_rightOperandShouldRetur
 	}
 }
 
-func Test_rightOperand_whenPatternIs1_andRightOperandIs2_rightOperandShouldReturnTwo(t *testing.T) {
+func Test_rightOperand_whenPatternIs1AndRightOperandIs2_rightOperandShouldReturnTwo(t *testing.T) {
 	c := New(1, placeholder, placeholder, 2)
 
 	l := c.RightOperand()
@@ -27,7 +27,7 @@ func Test_rightOperand_whenPatternIs1_andRightOperandIs2_rightOperandShouldRetur
 	}
 }
 
-func Test_rightOperand_whenPatternIs1_andRightOperandIs3_rightOperandShouldReturnThree(t *testing.T) {
+func Test_rightOperand_whenPatternIs1AndRightOperandIs3_rightOperandShouldReturnThree(t *testing.T) {
 	c := New(1, placeholder, placeholder, 3)
 
 	r := c.RightOperand()
@@ -37,7 +37,7 @@ func Test_rightOperand_whenPatternIs1_andRightOperandIs3_rightOperandShouldRetur
 	}
 }
 
-func Test_rightOperand_whenPatternIs2_andRightOperandIs1_rightOperandShouldReturn1(t *testing.T) {
+func Test_rightOperand_whenPatternIs2AndRightOperandIs1_rightOperandShouldReturn1(t *testing.T) {
 	c := New(2, placeholder, placeholder, 1)
 
 	r := c.RightOperand()
@@ -57,7 +57,7 @@ func (s *StringSpy) String() string {
 	return s.mockString
 }
 
-func Test_operatorShouldCallStringOnce(t *testing.T) {
+func Test_operator_shouldCallStringOnce(t *testing.T) {
 	c := New(placeholder, placeholder, placeholder, placeholder)
 	s := StringSpy{mockString: "placeholder"}
 	c.operator = &s
@@ -73,7 +73,7 @@ func Test_operatorShouldCallStringOnce(t *testing.T) {
 	}
 }
 
-func Test_operatorShouldBeOperator(t *testing.T) {
+func Test_New_operatorShouldBeOperator(t *testing.T) {
 	c := New(placeholder, placeholder, placeholder, placeholder)
 
 	operatorType := reflect.TypeOf(c.operator)
@@ -83,7 +83,7 @@ func Test_operatorShouldBeOperator(t *testing.T) {
 	}
 }
 
-func Test_leftOperandShouldBeWordOperandWhenPatterIs2(t *testing.T) {
+func Test_New_whenPatternIs2_leftOperandShouldBeWordOperand(t *testing.T) {
 	pattern := 2
 	c := New(pattern, placeholder, placeholder, placeholder)
 
@@ -94,7 +94,7 @@ func Test_leftOperandShouldBeWordOperandWhenPatterIs2(t *testing.T) {
 	}
 }
 
-func Test_rightOperand_whenPatternIs1_shouldBeWordOperand(t *testing.T) {
+func Test_New_whenPatternIs1_rightOperandShouldBeWordOperand(t *testing.T) {
 	pattern := 1
 	c := New(pattern, placeholder, placeholder, placeholder)
 
@@ -106,7 +106,7 @@ func Test_rightOperand_whenPatternIs1_shouldBeWordOperand(t *testing.T) {
 	}
 }
 
-func Test_leftOperandShouldCallStringOnce(t *testing.T) {
+func Test_leftOperand_shouldCallStringOnce(t *testing.T) {
 	spy := StringSpy{}
 	c := New(placeholder, placeholder, placeholder, placeholder)
 	c.leftOperand = &spy
