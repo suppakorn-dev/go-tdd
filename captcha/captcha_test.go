@@ -7,46 +7,6 @@ import (
 
 const placeholder = 0
 
-func Test_rightOperand_whenPatternIs1AndRightOperandIs1_rightOperandShouldReturnOne(t *testing.T) {
-	c := New(1, placeholder, placeholder, 1)
-
-	l := c.RightOperand()
-
-	if l != "One" {
-		t.Errorf("Should be %s but got %s", "One", l)
-	}
-}
-
-func Test_rightOperand_whenPatternIs1AndRightOperandIs2_rightOperandShouldReturnTwo(t *testing.T) {
-	c := New(1, placeholder, placeholder, 2)
-
-	l := c.RightOperand()
-
-	if l != "Two" {
-		t.Errorf("Should be %s but got %s", "Two", l)
-	}
-}
-
-func Test_rightOperand_whenPatternIs1AndRightOperandIs3_rightOperandShouldReturnThree(t *testing.T) {
-	c := New(1, placeholder, placeholder, 3)
-
-	r := c.RightOperand()
-
-	if r != "Three" {
-		t.Errorf("Should be %s but got %s", "Three", r)
-	}
-}
-
-func Test_rightOperand_whenPatternIs2AndRightOperandIs1_rightOperandShouldReturn1(t *testing.T) {
-	c := New(2, placeholder, placeholder, 1)
-
-	r := c.RightOperand()
-
-	if r != "1" {
-		t.Errorf("Should be %s but got %s", "1", r)
-	}
-}
-
 type StringSpy struct {
 	mockString        string
 	stringCalledCount uint
