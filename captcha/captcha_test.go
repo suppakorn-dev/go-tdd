@@ -94,6 +94,18 @@ func Test_leftOperandShouldBeWordOperandWhenPatterIs2(t *testing.T) {
 	}
 }
 
+func Test_rightOperandShouldBeWordOperandWhenPatternIs1(t *testing.T) {
+	pattern := 1
+	c := New(pattern, placeholder, placeholder, placeholder)
+
+	rightOperandType := reflect.TypeOf(c.rightOperand)
+	rightOperandTypeName := rightOperandType.Name()
+
+	if rightOperandTypeName != "WordOperand" {
+		t.Errorf("c.rightOperand should be WordOperand but got %s", rightOperandTypeName)
+	}
+}
+
 func Test_leftOperandShouldCallStringOnce(t *testing.T) {
 	spy := StringSpy{}
 	c := New(placeholder, placeholder, placeholder, placeholder)
