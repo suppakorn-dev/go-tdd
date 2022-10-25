@@ -94,7 +94,7 @@ func Test_leftOperandShouldBeWordOperandWhenPatterIs2(t *testing.T) {
 	}
 }
 
-func Test_rightOperandShouldBeWordOperandWhenPatternIs1(t *testing.T) {
+func Test_rightOperand_whenPatternIs1_shouldBeWordOperand(t *testing.T) {
 	pattern := 1
 	c := New(pattern, placeholder, placeholder, placeholder)
 
