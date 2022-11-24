@@ -1,8 +1,11 @@
 package captcha
 
 import (
+	"fmt"
 	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 const placeholder = 0
@@ -88,4 +91,17 @@ func Test_rightOperand_shouldCallStringOnce(t *testing.T) {
 	if spy.stringCalledCount != 1 {
 		t.Errorf("sut.rightOperand should call String() once, but call %d", spy.stringCalledCount)
 	}
+}
+
+func Test_captcha(t *testing.T) {
+	captcha := New(1, 1, 1, 1)
+	expected := "1 + One"
+
+	actual := result(captcha)
+
+	assert.Equal(t, expected, actual)
+}
+
+func result(c Captcha) string {
+	return fmt.Sprintf("%v %v %v", c.LeftOperand(), c.Operator(), c.RightOperand())
 }
