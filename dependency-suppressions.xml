@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
+	<suppress>
+		<notes>
+			<![CDATA[
+	  file name: cloud.google.com/go/storage:1.10.0
+	  ]]>
+		</notes>
+		<packageUrl regex="true">^pkg:golang/cloud\.google\.com/go/storage@.*$</packageUrl>
+		<cpe>cpe:/a:storage_project:storage</cpe>
+	</suppress>
+	<suppress>
+		<notes>
+			<![CDATA[
+		file name: github.com/prometheus/client_model:0.2.0
+		]]>
+		</notes>
+		<packageUrl regex="true">^pkg:golang/github\.com/prometheus/client_model@.*$</packageUrl>
+		<cpe>cpe:/a:prometheus:prometheus</cpe>
+	</suppress>
+	<suppress>
+		<notes>
+			<![CDATA[
+	file name: github.com/prometheus/common:0.32.1
+	]]>
+		</notes>
+		<packageUrl regex="true">^pkg:golang/github\.com/prometheus/common@.*$</packageUrl>
+		<cpe>cpe:/a:prometheus:prometheus</cpe>
+	</suppress>
+	<suppress>
+		<notes>
+			<![CDATA[
+		file name: github.com/prometheus/procfs:0.7.3
+		]]>
+		</notes>
+		<packageUrl regex="true">^pkg:golang/github\.com/prometheus/procfs@.*$</packageUrl>
+		<cpe>cpe:/a:prometheus:prometheus</cpe>
+	</suppress>
+	<suppress>
+		<notes><![CDATA[
+		file name: github.com/gogo/protobuf:1.1.1
+		]]></notes>
+		<packageUrl regex="true">^pkg:golang/github\.com/gogo/protobuf@.*$</packageUrl>
+		<vulnerabilityName>CVE-2021-3121</vulnerabilityName>
+	 </suppress>
+	 <suppress>
+		<notes><![CDATA[
+		file name: github.com/matttproud/golang_protobuf_extensions:1.0.1
+		]]></notes>
+		<packageUrl regex="true">^pkg:golang/github\.com/matttproud/golang_protobuf_extensions@.*$</packageUrl>
+		<cve>CVE-2021-3121</cve>
+	 </suppress>
+	 <suppress>
+		<notes><![CDATA[
+		file name: github.com/valyala/fasthttp:1.33.0
+		]]></notes>
+		<packageUrl regex="true">^pkg:golang/github\.com/valyala/fasthttp@.*$</packageUrl>
+		<cpe>cpe:/a:fasthttp_project:fasthttp</cpe>
+	 </suppress>
+</suppressions>

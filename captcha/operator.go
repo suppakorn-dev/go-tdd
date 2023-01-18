@@ -4,6 +4,7 @@ package captcha
 // Operator
 type Operator int
 
+// String  will convert number to operator symbol
 func (o Operator) String() string {
 	if o == 3 {
 		return "/"

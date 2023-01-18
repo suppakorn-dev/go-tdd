@@ -1,100 +1,14 @@
 package captcha
 
 import (
+	"fmt"
+	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 const placeholder = 0
-
-func Test_leftOperand_whenPatternIs1_andLeftOperandIs1_leftOperandShouldReturn1(t *testing.T) {
-	c := New(1, 1, placeholder, placeholder)
-
-	l := c.LeftOperand()
-
-	if l != "1" {
-		t.Error("Should be 1 but got", l)
-	}
-}
-
-func Test_leftOperand_whenPatternIs1_andLeftOperandIs2_leftOperandShouldReturn2(t *testing.T) {
-	c := New(1, 2, placeholder, placeholder)
-
-	l := c.LeftOperand()
-
-	if l != "2" {
-		t.Error("Should be 2 but got", l)
-	}
-}
-
-func Test_leftOperand_whenPatternIs2_andLeftOperandIs1_leftOperandShouldReturnOne(t *testing.T) {
-	c := New(2, 1, placeholder, placeholder)
-
-	l := c.LeftOperand()
-
-	if l != "One" {
-		t.Errorf("Should be %s but got %s", "One", l)
-	}
-}
-
-func Test_leftOperand_whenPatternIs2_andLeftOperandIs2_leftOperandShouldReturnTwo(t *testing.T) {
-	c := New(2, 2, placeholder, placeholder)
-
-	l := c.LeftOperand()
-
-	if l != "Two" {
-		t.Errorf("Should be %s but got %s", "Two", l)
-	}
-}
-
-func Test_leftOperand_whenPatternIs2_andLeftOperandIs3_leftOperandShouldReturnThree(t *testing.T) {
-	c := New(2, 3, placeholder, placeholder)
-
-	l := c.LeftOperand()
-
-	if l != "Three" {
-		t.Errorf("Should be %s but got %s", "Three", l)
-	}
-}
-
-func Test_rightOperand_whenPatternIs1_andRightOperandIs1_rightOperandShouldReturnOne(t *testing.T) {
-	c := New(1, placeholder, placeholder, 1)
-
-	l := c.RightOperand()
-
-	if l != "One" {
-		t.Errorf("Should be %s but got %s", "One", l)
-	}
-}
-
-func Test_rightOperand_whenPatternIs1_andRightOperandIs2_rightOperandShouldReturnTwo(t *testing.T) {
-	c := New(1, placeholder, placeholder, 2)
-
-	l := c.RightOperand()
-
-	if l != "Two" {
-		t.Errorf("Should be %s but got %s", "Two", l)
-	}
-}
-
-func Test_rightOperand_whenPatternIs1_andRightOperandIs3_rightOperandShouldReturnThree(t *testing.T) {
-	c := New(1, placeholder, placeholder, 3)
-
-	r := c.RightOperand()
-
-	if r != "Three" {
-		t.Errorf("Should be %s but got %s", "Three", r)
-	}
-}
-
-func Test_rightOperand_whenPatternIs2_andRightOperandIs1_rightOperandShouldReturn1(t *testing.T) {
-	c := New(2, placeholder, placeholder, 1)
-
-	r := c.RightOperand()
-
-	if r != "1" {
-		t.Errorf("Should be %s but got %s", "1", r)
-	}
-}
 
 type StringSpy struct {
 	mockString        string
@@ -106,7 +20,7 @@ func (s *StringSpy) String() string {
 	return s.mockString
 }
 
-func Test_operatorShouldCallStringOnce(t *testing.T) {
+func Test_operator_shouldCallStringOnce(t *testing.T) {
 	c := New(placeholder, placeholder, placeholder, placeholder)
 	s := StringSpy{mockString: "placeholder"}
 	c.operator = &s
@@ -122,12 +36,72 @@ func Test_operatorShouldCallStringOnce(t *testing.T) {
 	}
 }
 
-func Test_operatorShouldBeOperator(t *testing.T) {
+func Test_New_operatorShouldBeOperator(t *testing.T) {
 	c := New(placeholder, placeholder, placeholder, placeholder)
 
-	_, ok := c.operator.(Operator)
-
-	if !ok {
-		t.Errorf("c.operator should be Operator")
+	operatorType := reflect.TypeOf(c.operator)
+	typeName := operatorType.Name()
+	if typeName != "Operator" {
+		t.Errorf("c.operator should be Operator but got %s", typeName)
 	}
+}
+
+func Test_New_whenPatternIs2_leftOperandShouldBeWordOperand(t *testing.T) {
+	pattern := 2
+	c := New(pattern, placeholder, placeholder, placeholder)
+
+	wordOperandType := reflect.TypeOf(c.leftOperand)
+	typeName := wordOperandType.Name()
+	if typeName != "WordOperand" {
+		t.Errorf("c.leftOperand should be WordOperand but got %s", typeName)
+	}
+}
+
+func Test_New_whenPatternIs1_rightOperandShouldBeWordOperand(t *testing.T) {
+	pattern := 1
+	c := New(pattern, placeholder, placeholder, placeholder)
+
+	rightOperandType := reflect.TypeOf(c.rightOperand)
+	rightOperandTypeName := rightOperandType.Name()
+
+	if rightOperandTypeName != "WordOperand" {
+		t.Errorf("c.rightOperand should be WordOperand but got %s", rightOperandTypeName)
+	}
+}
+
+func Test_leftOperand_shouldCallStringOnce(t *testing.T) {
+	spy := StringSpy{}
+	c := New(placeholder, placeholder, placeholder, placeholder)
+	c.leftOperand = &spy
+
+	_ = c.LeftOperand()
+
+	if spy.stringCalledCount != 1 {
+		t.Errorf("c.leftOperand should call String() once, but call %d", spy.stringCalledCount)
+	}
+}
+
+func Test_rightOperand_shouldCallStringOnce(t *testing.T) {
+	spy := StringSpy{}
+	sut := New(placeholder, placeholder, placeholder, placeholder)
+	sut.rightOperand = &spy
+
+	sut.RightOperand()
+
+	if spy.stringCalledCount != 1 {
+		t.Errorf("sut.rightOperand should call String() once, but call %d", spy.stringCalledCount)
+	}
+}
+
+func Test_captcha(t *testing.T) {
+	captcha := New(1, 1, 1, 1)
+	expected := "1 + One"
+
+	actual := result(captcha)
+
+	assert.Equal(t, expected, actual)
+}
+
+func result(c Captcha) string {
+	return fmt.Sprintf("%v %v %v", c.LeftOperand(), c.Operator(), c.RightOperand())
 }
