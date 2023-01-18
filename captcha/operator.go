@@ -1,5 +1,6 @@
 package captcha
 
+// Operator is type to operate string
 type Operator int
 
 func (o Operator) String() string {
